@@ -5,7 +5,9 @@ LABEL BuildDate="27 February 2024"
 
 # Environment variables
 # Override these with a .env file or passing them into your Docker builld
-#ENV LAUNCHPAD_VERSION="1.5.6-alpha1"
+ENV LAUNCHPAD_VERSION="1.5.6-alpha1"
+ENV LAUNCHPAD_PLATFORM="x64_64"
+ENV LAUNCHPAD_OS="Linux"
 
 # Copy in our source binaries
 RUN mkdir /usr/local/launchpad
