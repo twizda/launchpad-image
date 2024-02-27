@@ -1,0 +1,533 @@
+[37mDEBU[0m checking for a launchpad upgrade             
+[37mDEBU[0m getting launchpad tag list                   
+[37mDEBU[0m tracking analytics event 'Cluster Reset Started' 
+[37mDEBU[0m opened config file from /home/twizda/Mirantis/launchpad/local-testing/launchpad.yaml 
+[37mDEBU[0m migrated configuration from launchpad.mirantis.com/v1.2 to launchpad.mirantis.com/mke/v1.3 
+[36mINFO[0m Note: The configuration has been migrated from a previous version 
+[36mINFO[0m       to see the migrated configuration use: launchpad describe config 
+[37mDEBU[0m loaded configuration:
+apiVersion: launchpad.mirantis.com/mke/v1.4
+kind: mke
+metadata:
+  name: local-mkex-test
+spec:
+  hosts:
+  - hooks:
+      reset:
+        after:
+        - sudo systemctl stop docker
+        - sudo rm -rf /var/lib/docker
+        - sudo systemctl start docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: manager
+    ssh:
+      address: 192.168.1.24
+      keyPath: ~/.ssh/mcp
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo systemctl stop docker
+        - sudo rm -rf /var/lib/docker
+        - sudo systemctl start docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.25
+      keyPath: ~/.ssh/mcp
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo systemctl stop docker
+        - sudo rm -rf /var/lib/docker
+        - sudo systemctl start docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.26
+      keyPath: ~/.ssh/mcp
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo systemctl stop docker
+        - sudo rm -rf /var/lib/docker
+        - sudo systemctl start docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.28
+      keyPath: ~/.ssh/mcp
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo systemctl stop docker
+        - sudo rm -rf /var/lib/docker
+        - sudo systemctl start docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.30
+      keyPath: ~/.ssh/mcp
+      user: twizda
+  mcr:
+    channel: stable
+    version: 23.0.7
+  mke:
+    adminPassword: S#riouslyB@dP@ssw0rd
+    adminUsername: admin
+    configFile: ./mke-config.toml
+    installFlags:
+    - --enable-profiling
+    - --ingress-controller
+    - --san 52.15.150.117
+    - --san 172.31.0.10
+    - --san ec2-52-15-150-117.us-east-2.compute.amazonaws.com
+    licenseFilePath: ./docker.lic
+    version: 3.7.0 
+[37mDEBU[0m preparing phase 'Open Remote Connection'     
+[36mINFO[0m [32m==> Running phase: Open Remote Connection[0m 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m [ssh] 192.168.1.24:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m [ssh] 192.168.1.30:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m [ssh] 192.168.1.26:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m [ssh] 192.168.1.24:22: using an unencrypted private key from /home/twizda/.ssh/mcp 
+[37mDEBU[0m [ssh] 192.168.1.30:22: using an unencrypted private key from /home/twizda/.ssh/mcp 
+[37mDEBU[0m [ssh] 192.168.1.25:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m [ssh] 192.168.1.28:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m [ssh] 192.168.1.26:22: using an unencrypted private key from /home/twizda/.ssh/mcp 
+[37mDEBU[0m [ssh] 192.168.1.24:22: checking if host is windows 
+[37mDEBU[0m [ssh] 192.168.1.26:22: checking if host is windows 
+[37mDEBU[0m [ssh] 192.168.1.25:22: checking if host is windows 
+[37mDEBU[0m [ssh] 192.168.1.28:22: checking if host is windows 
+[37mDEBU[0m [ssh] 192.168.1.30:22: checking if host is windows 
+[37mDEBU[0m getting launchpad release information for version 1.5.4 
+[37mDEBU[0m getting launchpad release information for version 1.5.4 returned http 404 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.26:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.25:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.25:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.26:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.28:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.28:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.28:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.28:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.28:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.26:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.26:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.26:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.26:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.26:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.26:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.25:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.25:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.25:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.25:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.25:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.30:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.30:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.30:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.30:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.30:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `sudo -n true` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `sudo -n true` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `sudo -n true` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.24:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.24:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.24:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.24:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.24:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `sudo -n true` 
+[36mINFO[0m [ssh] 192.168.1.26:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `echo`      
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `sudo -n true` 
+[36mINFO[0m [ssh] 192.168.1.28:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `echo`      
+[36mINFO[0m [ssh] 192.168.1.25:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `echo`      
+[36mINFO[0m [ssh] 192.168.1.30:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `echo`      
+[37mDEBU[0m [ssh] 192.168.1.26:22:                       
+[37mDEBU[0m [ssh] 192.168.1.28:22:                       
+[37mDEBU[0m [ssh] 192.168.1.25:22:                       
+[37mDEBU[0m [ssh] 192.168.1.30:22:                       
+[36mINFO[0m [ssh] 192.168.1.24:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `echo`      
+[37mDEBU[0m [ssh] 192.168.1.24:22:                       
+[37mDEBU[0m phase 'Open Remote Connection' took 0s       
+[37mDEBU[0m phase 'Open Remote Connection' completed successfully 
+[37mDEBU[0m preparing phase 'Detect host operating systems' 
+[36mINFO[0m [32m==> Running phase: Detect host operating systems[0m 
+[33mWARN[0m Building an MKEX configurer for a host. This configurer will behave differently, skipping some expected installation steps. 
+[33mWARN[0m Building an MKEX configurer for a host. This configurer will behave differently, skipping some expected installation steps. 
+[33mWARN[0m Building an MKEX configurer for a host. This configurer will behave differently, skipping some expected installation steps. 
+[33mWARN[0m Building an MKEX configurer for a host. This configurer will behave differently, skipping some expected installation steps. 
+[33mWARN[0m Building an MKEX configurer for a host. This configurer will behave differently, skipping some expected installation steps. 
+[36mINFO[0m [ssh] 192.168.1.28:22: is running MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)] 
+[36mINFO[0m [ssh] 192.168.1.25:22: is running MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)] 
+[36mINFO[0m [ssh] 192.168.1.24:22: is running MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)] 
+[36mINFO[0m [ssh] 192.168.1.30:22: is running MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)] 
+[36mINFO[0m [ssh] 192.168.1.26:22: is running MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)] 
+[37mDEBU[0m phase 'Detect host operating systems' took 0s 
+[37mDEBU[0m phase 'Detect host operating systems' completed successfully 
+[37mDEBU[0m preparing phase 'Gather Facts'               
+[36mINFO[0m [32m==> Running phase: Gather Facts[0m     
+[36mINFO[0m [ssh] 192.168.1.30:22: gathering host facts  
+[36mINFO[0m [ssh] 192.168.1.25:22: gathering host facts  
+[36mINFO[0m [ssh] 192.168.1.26:22: gathering host facts  
+[36mINFO[0m [ssh] 192.168.1.28:22: gathering host facts  
+[36mINFO[0m [ssh] 192.168.1.24:22: gathering host facts  
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `docker version -f "{{.Server.Version}}"` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `docker version -f "{{.Server.Version}}"` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `docker version -f "{{.Server.Version}}"` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `docker version -f "{{.Server.Version}}"` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `docker version -f "{{.Server.Version}}"` 
+[37mDEBU[0m [ssh] 192.168.1.30:22:                       
+[37mDEBU[0m [ssh] 192.168.1.30:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied 
+[36mINFO[0m [ssh] 192.168.1.30:22: mirantis container runtime not installed 
+[37mDEBU[0m [ssh] 192.168.1.25:22:                       
+[37mDEBU[0m [ssh] 192.168.1.25:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `hostname 2> /dev/null` 
+[36mINFO[0m [ssh] 192.168.1.25:22: mirantis container runtime not installed 
+[37mDEBU[0m [ssh] 192.168.1.26:22:                       
+[37mDEBU[0m [ssh] 192.168.1.26:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `hostname 2> /dev/null` 
+[36mINFO[0m [ssh] 192.168.1.26:22: mirantis container runtime not installed 
+[37mDEBU[0m [ssh] 192.168.1.28:22:                       
+[37mDEBU[0m [ssh] 192.168.1.28:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `hostname 2> /dev/null` 
+[36mINFO[0m [ssh] 192.168.1.28:22: mirantis container runtime not installed 
+[37mDEBU[0m [ssh] 192.168.1.24:22:                       
+[37mDEBU[0m [ssh] 192.168.1.24:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `hostname 2> /dev/null` 
+[36mINFO[0m [ssh] 192.168.1.24:22: mirantis container runtime not installed 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `hostname 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: mke-msr31             
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `hostname -f 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: mke-kube              
+[37mDEBU[0m [ssh] 192.168.1.28:22: mke-msr               
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `hostname -f 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `hostname -f 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: mke-swarm             
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `hostname -f 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: mke-mgr               
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `hostname -f 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: mke-mgr               
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH; (ip route list scope global | grep -P "\b(172|10|192\.168)\.") || (ip route list | grep -m1 default)` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: mke-msr31             
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH; (ip route list scope global | grep -P "\b(172|10|192\.168)\.") || (ip route list | grep -m1 default)` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: mke-kube              
+[37mDEBU[0m [ssh] 192.168.1.25:22: mke-swarm             
+[37mDEBU[0m [ssh] 192.168.1.28:22: mke-msr               
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH; (ip route list scope global | grep -P "\b(172|10|192\.168)\.") || (ip route list | grep -m1 default)` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH; (ip route list scope global | grep -P "\b(172|10|192\.168)\.") || (ip route list | grep -m1 default)` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH; (ip route list scope global | grep -P "\b(172|10|192\.168)\.") || (ip route list | grep -m1 default)` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: default via 192.168.1.1 dev enp0s3 proto dhcp src 192.168.1.24 metric 100 
+[36mINFO[0m [ssh] 192.168.1.24:22: detected private interface 'enp0s3' 
+[37mDEBU[0m [ssh] 192.168.1.30:22: default via 192.168.1.1 dev enp0s3 proto dhcp src 192.168.1.30 metric 100 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH ip -o addr show dev enp0s3 scope global` 
+[36mINFO[0m [ssh] 192.168.1.30:22: detected private interface 'enp0s3' 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH ip -o addr show dev enp0s3 scope global` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: default via 192.168.1.1 dev enp0s3 proto dhcp src 192.168.1.26 metric 100 
+[37mDEBU[0m [ssh] 192.168.1.25:22: default via 192.168.1.1 dev enp0s3 proto dhcp src 192.168.1.25 metric 100 
+[37mDEBU[0m [ssh] 192.168.1.28:22: default via 192.168.1.1 dev enp0s3 proto dhcp src 192.168.1.28 metric 100 
+[36mINFO[0m [ssh] 192.168.1.26:22: detected private interface 'enp0s3' 
+[36mINFO[0m [ssh] 192.168.1.25:22: detected private interface 'enp0s3' 
+[36mINFO[0m [ssh] 192.168.1.28:22: detected private interface 'enp0s3' 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH ip -o addr show dev enp0s3 scope global` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH ip -o addr show dev enp0s3 scope global` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH ip -o addr show dev enp0s3 scope global` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: 2: enp0s3    inet 192.168.1.24/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3\       valid_lft 85391sec preferred_lft 85391sec 
+[36mINFO[0m [ssh] 192.168.1.24:22: using 192.168.1.24 as private IP 
+[36mINFO[0m [ssh] 192.168.1.24:22: is running "MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)]" 
+[36mINFO[0m [ssh] 192.168.1.24:22: internal address: 192.168.1.24 
+[36mINFO[0m [ssh] 192.168.1.24:22: gathered all facts    
+[37mDEBU[0m [ssh] 192.168.1.30:22: 2: enp0s3    inet 192.168.1.30/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3\       valid_lft 85626sec preferred_lft 85626sec 
+[36mINFO[0m [ssh] 192.168.1.30:22: using 192.168.1.30 as private IP 
+[36mINFO[0m [ssh] 192.168.1.30:22: is running "MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)]" 
+[36mINFO[0m [ssh] 192.168.1.30:22: internal address: 192.168.1.30 
+[36mINFO[0m [ssh] 192.168.1.30:22: gathered all facts    
+[37mDEBU[0m [ssh] 192.168.1.28:22: 2: enp0s3    inet 192.168.1.28/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3\       valid_lft 85567sec preferred_lft 85567sec 
+[36mINFO[0m [ssh] 192.168.1.28:22: using 192.168.1.28 as private IP 
+[36mINFO[0m [ssh] 192.168.1.28:22: is running "MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)]" 
+[36mINFO[0m [ssh] 192.168.1.28:22: internal address: 192.168.1.28 
+[36mINFO[0m [ssh] 192.168.1.28:22: gathered all facts    
+[37mDEBU[0m [ssh] 192.168.1.26:22: 2: enp0s3    inet 192.168.1.26/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3\       valid_lft 85504sec preferred_lft 85504sec 
+[36mINFO[0m [ssh] 192.168.1.26:22: using 192.168.1.26 as private IP 
+[36mINFO[0m [ssh] 192.168.1.26:22: is running "MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)]" 
+[36mINFO[0m [ssh] 192.168.1.26:22: internal address: 192.168.1.26 
+[36mINFO[0m [ssh] 192.168.1.26:22: gathered all facts    
+[37mDEBU[0m [ssh] 192.168.1.25:22: 2: enp0s3    inet 192.168.1.25/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3\       valid_lft 85447sec preferred_lft 85447sec 
+[36mINFO[0m [ssh] 192.168.1.25:22: using 192.168.1.25 as private IP 
+[36mINFO[0m [ssh] 192.168.1.25:22: is running "MKEx MKE-3.7.0 (Rocky Linux 8) [MKEx MKE-3.7.0 (Rocky Linux 8)]" 
+[36mINFO[0m [ssh] 192.168.1.25:22: internal address: 192.168.1.25 
+[36mINFO[0m [ssh] 192.168.1.25:22: gathered all facts    
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `docker info --format "{{ .Swarm.ControlAvailable}}"` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/info": dial unix /var/run/docker.sock: connect: permission denied 
+[37mDEBU[0m [ssh] 192.168.1.24:22: false                 
+[37mDEBU[0m did not find a real swarm manager, fallback to first manager host 
+[37mDEBU[0m phase 'Gather Facts' took 0s                 
+[37mDEBU[0m phase 'Gather Facts' completed successfully  
+[37mDEBU[0m preparing phase 'Prepare hosts'              
+[36mINFO[0m [32m==> Running phase: Prepare hosts[0m    
+[37mDEBU[0m [ssh] 192.168.1.30:22: no environment variables specified for the host 
+[37mDEBU[0m [ssh] 192.168.1.24:22: no environment variables specified for the host 
+[37mDEBU[0m [ssh] 192.168.1.26:22: no environment variables specified for the host 
+[37mDEBU[0m [ssh] 192.168.1.25:22: no environment variables specified for the host 
+[37mDEBU[0m [ssh] 192.168.1.28:22: no environment variables specified for the host 
+[36mINFO[0m [ssh] 192.168.1.30:22: installing base packages 
+[37mDEBU[0m [ssh] 192.168.1.30:22: InstallMKEBasePackage on MKEx takes no action. The base OS is expected to meet requirements already. 
+[36mINFO[0m [ssh] 192.168.1.25:22: installing base packages 
+[36mINFO[0m [ssh] 192.168.1.26:22: installing base packages 
+[36mINFO[0m [ssh] 192.168.1.24:22: installing base packages 
+[36mINFO[0m [ssh] 192.168.1.30:22: base packages installed 
+[37mDEBU[0m [ssh] 192.168.1.25:22: InstallMKEBasePackage on MKEx takes no action. The base OS is expected to meet requirements already. 
+[36mINFO[0m [ssh] 192.168.1.28:22: installing base packages 
+[36mINFO[0m [ssh] 192.168.1.25:22: base packages installed 
+[37mDEBU[0m [ssh] 192.168.1.26:22: InstallMKEBasePackage on MKEx takes no action. The base OS is expected to meet requirements already. 
+[36mINFO[0m [ssh] 192.168.1.26:22: base packages installed 
+[37mDEBU[0m [ssh] 192.168.1.28:22: InstallMKEBasePackage on MKEx takes no action. The base OS is expected to meet requirements already. 
+[36mINFO[0m [ssh] 192.168.1.28:22: base packages installed 
+[37mDEBU[0m [ssh] 192.168.1.24:22: InstallMKEBasePackage on MKEx takes no action. The base OS is expected to meet requirements already. 
+[36mINFO[0m [ssh] 192.168.1.24:22: base packages installed 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `grep 'container=docker' /proc/1/environ 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `grep 'container=docker' /proc/1/environ 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `grep 'container=docker' /proc/1/environ 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `grep 'container=docker' /proc/1/environ 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `grep 'container=docker' /proc/1/environ 2> /dev/null` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: AuthorizeDocker on MKEx takes no action. The base OS is expected to have docker user/groups setup. 
+[37mDEBU[0m [ssh] 192.168.1.24:22: AuthorizeDocker on MKEx takes no action. The base OS is expected to have docker user/groups setup. 
+[37mDEBU[0m [ssh] 192.168.1.25:22: AuthorizeDocker on MKEx takes no action. The base OS is expected to have docker user/groups setup. 
+[37mDEBU[0m [ssh] 192.168.1.28:22: AuthorizeDocker on MKEx takes no action. The base OS is expected to have docker user/groups setup. 
+[37mDEBU[0m [ssh] 192.168.1.26:22: AuthorizeDocker on MKEx takes no action. The base OS is expected to have docker user/groups setup. 
+[37mDEBU[0m phase 'Prepare hosts' took 0s                
+[37mDEBU[0m phase 'Prepare hosts' completed successfully 
+[37mDEBU[0m preparing phase 'Run Before Reset Hooks'     
+[37mDEBU[0m skipping phase 'Run Before Reset Hooks'      
+[37mDEBU[0m preparing phase 'Uninstall MSR components'   
+[37mDEBU[0m skipping phase 'Uninstall MSR components'    
+[37mDEBU[0m preparing phase 'Uninstall MKE components'   
+[36mINFO[0m [32m==> Running phase: Uninstall MKE components[0m 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `docker info --format "{{ .Swarm.ControlAvailable}}"` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/info": dial unix /var/run/docker.sock: connect: permission denied 
+[37mDEBU[0m [ssh] 192.168.1.24:22: false                 
+[37mDEBU[0m did not find a real swarm manager, fallback to first manager host 
+[36mINFO[0m [ssh] 192.168.1.24:22: MKE is not installed, skipping 
+[37mDEBU[0m phase 'Uninstall MKE components' took 0s     
+[37mDEBU[0m phase 'Uninstall MKE components' completed successfully 
+[37mDEBU[0m preparing phase 'Download Mirantis Container Runtime installer' 
+[36mINFO[0m [32m==> Running phase: Download Mirantis Container Runtime installer[0m 
+[36mINFO[0m downloading container runtime install script from https://get.mirantis.com/ 
+[37mDEBU[0m read 13945 bytes from https://get.mirantis.com/ 
+[37mDEBU[0m phase 'Download Mirantis Container Runtime installer' took 0s 
+[37mDEBU[0m phase 'Download Mirantis Container Runtime installer' completed successfully 
+[37mDEBU[0m preparing phase 'Uninstall Mirantis Container Runtime from the hosts' 
+[36mINFO[0m [32m==> Running phase: Uninstall Mirantis Container Runtime from the hosts[0m 
+[36mINFO[0m [ssh] 192.168.1.30:22: uninstalling container runtime 
+[37mDEBU[0m [ssh] 192.168.1.30:22: UninstallMCR on MKEx takes no action. The base OS should not be managed by Launchpad. 
+[36mINFO[0m [ssh] 192.168.1.25:22: uninstalling container runtime 
+[36mINFO[0m [ssh] 192.168.1.30:22: mirantis container runtime uninstalled 
+[36mINFO[0m [ssh] 192.168.1.24:22: uninstalling container runtime 
+[36mINFO[0m [ssh] 192.168.1.26:22: uninstalling container runtime 
+[36mINFO[0m [ssh] 192.168.1.28:22: uninstalling container runtime 
+[37mDEBU[0m [ssh] 192.168.1.28:22: UninstallMCR on MKEx takes no action. The base OS should not be managed by Launchpad. 
+[37mDEBU[0m [ssh] 192.168.1.25:22: UninstallMCR on MKEx takes no action. The base OS should not be managed by Launchpad. 
+[37mDEBU[0m [ssh] 192.168.1.24:22: UninstallMCR on MKEx takes no action. The base OS should not be managed by Launchpad. 
+[37mDEBU[0m [ssh] 192.168.1.26:22: UninstallMCR on MKEx takes no action. The base OS should not be managed by Launchpad. 
+[36mINFO[0m [ssh] 192.168.1.26:22: mirantis container runtime uninstalled 
+[36mINFO[0m [ssh] 192.168.1.25:22: mirantis container runtime uninstalled 
+[36mINFO[0m [ssh] 192.168.1.24:22: mirantis container runtime uninstalled 
+[36mINFO[0m [ssh] 192.168.1.28:22: mirantis container runtime uninstalled 
+[37mDEBU[0m phase 'Uninstall Mirantis Container Runtime from the hosts' took 0s 
+[37mDEBU[0m phase 'Uninstall Mirantis Container Runtime from the hosts' completed successfully 
+[37mDEBU[0m preparing phase 'Clean up'                   
+[36mINFO[0m [32m==> Running phase: Clean up[0m         
+[37mDEBU[0m phase 'Clean up' took 0s                     
+[37mDEBU[0m phase 'Clean up' completed successfully      
+[37mDEBU[0m preparing phase 'Run After Reset Hooks'      
+[36mINFO[0m [32m==> Running phase: Run After Reset Hooks[0m 
+[36mINFO[0m [ssh] 192.168.1.24:22: Executing: sudo systemctl stop docker 
+[36mINFO[0m [ssh] 192.168.1.26:22: Executing: sudo systemctl stop docker 
+[36mINFO[0m [ssh] 192.168.1.28:22: Executing: sudo systemctl stop docker 
+[36mINFO[0m [ssh] 192.168.1.25:22: Executing: sudo systemctl stop docker 
+[36mINFO[0m [ssh] 192.168.1.30:22: Executing: sudo systemctl stop docker 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `sudo systemctl stop docker` 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `sudo systemctl stop docker` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `sudo systemctl stop docker` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `sudo systemctl stop docker` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `sudo systemctl stop docker` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: Warning: Stopping docker.service, but it can still be activated by: 
+[37mDEBU[0m [ssh] 192.168.1.25:22: docker.socket         
+[36mINFO[0m [ssh] 192.168.1.25:22: Warning: Stopping docker.service, but it can still be activated by:
+[ssh] 192.168.1.25:22:   docker.socket 
+[36mINFO[0m [ssh] 192.168.1.25:22: Executing: sudo rm -rf /var/lib/docker 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `sudo rm -rf /var/lib/docker` 
+[36mINFO[0m [ssh] 192.168.1.30:22: Executing: sudo rm -rf /var/lib/docker 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `sudo rm -rf /var/lib/docker` 
+[36mINFO[0m [ssh] 192.168.1.28:22: Executing: sudo rm -rf /var/lib/docker 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `sudo rm -rf /var/lib/docker` 
+[36mINFO[0m [ssh] 192.168.1.25:22: Executing: sudo systemctl start docker 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `sudo systemctl start docker` 
+[36mINFO[0m [ssh] 192.168.1.30:22: Executing: sudo systemctl start docker 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `sudo systemctl start docker` 
+[36mINFO[0m [ssh] 192.168.1.28:22: Executing: sudo systemctl start docker 
+[37mDEBU[0m [ssh] 192.168.1.28:22: executing `sudo systemctl start docker` 
+[37mDEBU[0m [ssh] 192.168.1.26:22: Warning: Stopping docker.service, but it can still be activated by: 
+[37mDEBU[0m [ssh] 192.168.1.26:22: docker.socket         
+[36mINFO[0m [ssh] 192.168.1.26:22: Warning: Stopping docker.service, but it can still be activated by:
+[ssh] 192.168.1.26:22:   docker.socket 
+[36mINFO[0m [ssh] 192.168.1.26:22: Executing: sudo rm -rf /var/lib/docker 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `sudo rm -rf /var/lib/docker` 
+[36mINFO[0m [ssh] 192.168.1.26:22: Executing: sudo systemctl start docker 
+[37mDEBU[0m [ssh] 192.168.1.26:22: executing `sudo systemctl start docker` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: Warning: Stopping docker.service, but it can still be activated by: 
+[37mDEBU[0m [ssh] 192.168.1.24:22: docker.socket         
+[36mINFO[0m [ssh] 192.168.1.24:22: Warning: Stopping docker.service, but it can still be activated by:
+[ssh] 192.168.1.24:22:   docker.socket 
+[36mINFO[0m [ssh] 192.168.1.24:22: Executing: sudo rm -rf /var/lib/docker 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `sudo rm -rf /var/lib/docker` 
+[36mINFO[0m [ssh] 192.168.1.24:22: Executing: sudo systemctl start docker 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `sudo systemctl start docker` 
+[37mDEBU[0m phase 'Run After Reset Hooks' took 0s        
+[37mDEBU[0m phase 'Run After Reset Hooks' completed successfully 
+[37mDEBU[0m preparing phase 'Close Connection'           
+[36mINFO[0m [32m==> Running phase: Close Connection[0m 
+[36mINFO[0m [SSH] 192.168.1.30: disconnected             
+[36mINFO[0m [SSH] 192.168.1.28: disconnected             
+[36mINFO[0m [SSH] 192.168.1.26: disconnected             
+[36mINFO[0m [SSH] 192.168.1.25: disconnected             
+[36mINFO[0m [SSH] 192.168.1.24: disconnected             
+[37mDEBU[0m phase 'Close Connection' took 0s             
+[37mDEBU[0m phase 'Close Connection' completed successfully 
+[37mDEBU[0m tracking analytics event 'Uninstall Mirantis Container Runtime from the hosts' 
+[37mDEBU[0m tracking analytics event 'Download Mirantis Container Runtime installer' 
+[37mDEBU[0m tracking analytics event 'Uninstall MKE components' 
+[37mDEBU[0m tracking analytics event 'Prepare hosts'     
+[37mDEBU[0m tracking analytics event 'Gather Facts'      
+[37mDEBU[0m tracking analytics event 'Detect host operating systems' 
+[37mDEBU[0m tracking analytics event 'Cluster Reset Completed' 

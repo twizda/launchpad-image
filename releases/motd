@@ -1,0 +1,15 @@
+*******************************************************************************
+* To obtain the launchpad version you want,                                   *
+* run the following command:                                                  *
+*******************************************************************************
+
+ export LAUNCHPAD_VERSION="1.5.6-alpha1"
+ docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
+    ID=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) && \
+    sudo docker cp ${ID}:/usr/local/launchpad/${LAUNCHPAD_VERSION}/launchpad-$(uname -s)-$(uname -m) /usr/local/bin/launchpad && \
+    docker rm ${ID} >/dev/null
+
+NOTE: Special Mirantis builds will have the release version in the form of:
+              Client-Build Commit-version
+Example:      export LAUNCHPAD_VERSION="rbc-ce3f6fd-dev"
+

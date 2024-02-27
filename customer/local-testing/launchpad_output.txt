@@ -1,0 +1,209 @@
+[37mDEBU[0m checking for a launchpad upgrade             
+[37mDEBU[0m getting launchpad tag list                   
+[37mDEBU[0m tracking analytics event 'Cluster Reset Started' 
+[37mDEBU[0m opened config file from /home/twizda/Mirantis/launchpad/local-testing/launchpad.yaml 
+[37mDEBU[0m migrated configuration from launchpad.mirantis.com/v1.2 to launchpad.mirantis.com/mke/v1.3 
+[36mINFO[0m Note: The configuration has been migrated from a previous version 
+[36mINFO[0m       to see the migrated configuration use: launchpad describe config 
+[37mDEBU[0m loaded configuration:
+apiVersion: launchpad.mirantis.com/mke/v1.4
+kind: mke
+metadata:
+  name: local-mkex-test
+spec:
+  hosts:
+  - hooks:
+      reset:
+        after:
+        - sudo rm -rf /var/lib/docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: manager
+    ssh:
+      address: 192.168.1.24
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo rm -rf /var/lib/docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.25
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo rm -rf /var/lib/docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.26
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo rm -rf /var/lib/docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.28
+      user: twizda
+  - hooks:
+      reset:
+        after:
+        - sudo rm -rf /var/lib/docker
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-file: "3"
+        max-size: 10m
+    role: worker
+    ssh:
+      address: 192.168.1.30
+      user: twizda
+  mcr:
+    channel: stable
+    version: 23.0.7
+  mke:
+    adminPassword: S#riouslyB@dP@ssw0rd
+    adminUsername: admin
+    configFile: ./mke-config.toml
+    installFlags:
+    - --enable-profiling
+    - --ingress-controller
+    - --san 52.15.150.117
+    - --san 172.31.0.10
+    - --san ec2-52-15-150-117.us-east-2.compute.amazonaws.com
+    licenseFilePath: ./docker.lic
+    version: 3.7.3 
+[37mDEBU[0m preparing phase 'Open Remote Connection'     
+[36mINFO[0m [32m==> Running phase: Open Remote Connection[0m 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m [ssh] 192.168.1.30:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m [ssh] 192.168.1.26:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m [ssh] 192.168.1.25:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m [ssh] 192.168.1.24:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m using SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[37mDEBU[0m [ssh] 192.168.1.28:22: using all keys (1) from ssh agent because a keypath was not explicitly given 
+[37mDEBU[0m [SSH] 192.168.1.26: failed to connect: can't connect: ssh: handshake failed: host key mismatch: knownhosts: key mismatch 
+[37mDEBU[0m [SSH] 192.168.1.28: failed to connect: can't connect: ssh: handshake failed: host key mismatch: knownhosts: key mismatch 
+[37mDEBU[0m [ssh] 192.168.1.30:22: checking if host is windows 
+[37mDEBU[0m [ssh] 192.168.1.24:22: checking if host is windows 
+[37mDEBU[0m [ssh] 192.168.1.25:22: checking if host is windows 
+[37mDEBU[0m getting launchpad release information for version 1.5.4 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m getting launchpad release information for version 1.5.4 returned http 404 
+[37mDEBU[0m [ssh] 192.168.1.30:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.25:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `cmd.exe /c exit 0` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: host is windows: false 
+[37mDEBU[0m [ssh] 192.168.1.30:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `cat /usr/lib/mirantis-release` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: MKEx MKE-3.7.0 (Rocky Linux 8) 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `uname | grep -q Linux` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.30:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.30:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.30:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.30:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.30:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `cat /etc/os-release || cat /usr/lib/os-release` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.25:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.25:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.25:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.25:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.25:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `sudo -n true` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: NAME="Rocky Linux"    
+[37mDEBU[0m [ssh] 192.168.1.24:22: VERSION="8 (Green Obsidian)" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ID="rocky"            
+[37mDEBU[0m [ssh] 192.168.1.24:22: ID_LIKE="rhel centos fedora" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: VERSION_ID="8"        
+[37mDEBU[0m [ssh] 192.168.1.24:22: PLATFORM_ID="platform:el8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: PRETTY_NAME="MKEx MKE-3.7.0 (Rocky Linux 8)" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: VARIANT="MKEx"        
+[37mDEBU[0m [ssh] 192.168.1.24:22: VARIANT_ID="MKEx MKE-3.7.0" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ANSI_COLOR="0;32"     
+[37mDEBU[0m [ssh] 192.168.1.24:22: LOGO="fedora-logo-icon" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: CPE_NAME="cpe:/o:rocky:rocky:8:GA:mkex" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: HOME_URL="https://www.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: BUG_REPORT_URL= "https://support.mirantis.com/" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: SUPPORT_END="2029-05-31" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ROCKY_SUPPORT_PRODUCT="Rocky-Linux-8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: ROCKY_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: REDHAT_SUPPORT_PRODUCT="Rocky Linux" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: REDHAT_SUPPORT_PRODUCT_VERSION="8" 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `[ "$(id -u)" = 0 ]` 
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `sudo -n true` 
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `sudo -n true` 
+[36mINFO[0m [ssh] 192.168.1.30:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.30:22: executing `echo`      
+[37mDEBU[0m [ssh] 192.168.1.30:22:                       
+[36mINFO[0m [ssh] 192.168.1.25:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.25:22: executing `echo`      
+[36mINFO[0m [ssh] 192.168.1.24:22: testing connection    
+[37mDEBU[0m [ssh] 192.168.1.24:22: executing `echo`      
+[37mDEBU[0m [ssh] 192.168.1.25:22:                       
+[37mDEBU[0m [ssh] 192.168.1.24:22:                       
+[37mDEBU[0m phase 'Open Remote Connection' took 0s       
+[37mDEBU[0m tracking analytics event 'Cluster Reset Failed' 
+[31mFATA[0m failed to reset cluster: reset failed: phase failure: Open Remote Connection => failed to connect all hosts: connect [SSH] 192.168.1.26: failed to connect: All attempts fail:
+#1: connect: not connected: client connect: can't connect: ssh: handshake failed: host key mismatch: knownhosts: key mismatch
+connect [SSH] 192.168.1.28: failed to connect: All attempts fail:
+#1: connect: not connected: client connect: can't connect: ssh: handshake failed: host key mismatch: knownhosts: key mismatch 

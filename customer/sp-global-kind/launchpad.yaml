@@ -1,0 +1,23 @@
+apiVersion: launchpad.mirantis.com/mke/v1.3
+kind: mke
+metadata:
+  name: sp-msr-kind
+spec:
+  hosts:
+  - role: manager
+    hooks:
+      reset:
+        after:
+          - sudo rm -rf /var/lib/docker
+    ssh:
+      address: 18.219.37.158
+      user: docker
+      keyPath: ~/.testkit/twizda-testkit.pem
+    mcrConfig:
+      experimental: true
+      log-opts:
+        max-size: 10m
+        max-file: "3"
+  mcr:
+    version: 23.0.6
+    channel: stable
