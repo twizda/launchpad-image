@@ -1,0 +1,52 @@
+# launchpad-image
+A utility to easily obtain a desired version of launchpad for the OS and platform you are running on.  Supported on linux/arm64 and linux/x86_64 platforms.
+
+## Instructions for use
+Using launchpad-image is easy!
+1. Set the LAUNCHPAD_VERSION variable to the version you desire:
+```
+export LAUNCHPAD_VERSION="1.5.4"
+```
+2. Run the following command to pull the current image and copy launchpad to /usr/local/bin:
+```
+docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
+    ID=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) && \
+    sudo docker cp ${ID}:/usr/local/launchpad/${LAUNCHPAD_VERSION}/launchpad-$(uname -s)-$(uname -m) /usr/local/bin/launchpad && \
+    docker rm ${ID} >/dev/null
+```
+
+*NOTE*: If you try to run the container, it will show the usage output:
+```
+[twizda@mkex-3 launchpad-image]$ docker container run -it --rm msr.ci.mirantis.com/twizda/launchpad:latest
+Unable to find image 'msr.ci.mirantis.com/twizda/launchpad:20240228' locally
+20240228: Pulling from twizda/launchpad
+dcccee43ad5d: Pull complete
+7da59b2053a0: Pull complete
+ff9a6924b247: Pull complete
+d32d73cfa661: Pull complete
+Digest: sha256:c708cd6822f1f25986a11562c3823d9a2281eee9258da6ffeef10c498231df3c
+Status: Downloaded newer image for msr.ci.mirantis.com/twizda/launchpad:20240228
+*******************************************************************************
+* To obtain the launchpad version you want,                                   *
+* run the following command:                                                  *
+*******************************************************************************
+
+Launchpad versions in this container:
+1.5.3
+1.5.4
+1.5.6-alpha1
+
+Special build:
+rbc-ce3f6fd-dev
+
+Export the LAUNCHPAD_VERSION accordingly, for example:
+  export LAUNCHPAD_VERSION="1.5.6-alpha1"
+
+Then run:
+  docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
+    ID=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) && \
+    sudo docker cp ${ID}:/usr/local/launchpad/${LAUNCHPAD_VERSION}/launchpad-$(uname -s)-$(uname -m) /usr/local/bin/launchpad && \
+    docker rm ${ID} >/dev/null
+```
+
+Enjoy!
