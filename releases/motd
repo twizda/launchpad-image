@@ -7,12 +7,14 @@ Launchpad versions in this container:
 1.5.3
 1.5.4
 1.5.6-alpha1
+1.5.6-alpha2
 
 Special build:
 rbc-ce3f6fd-dev
 
+For Linux/MacOS:
 Export the LAUNCHPAD_VERSION accordingly, for example:
-  export LAUNCHPAD_VERSION="1.5.6-alpha1"
+  export LAUNCHPAD_VERSION="1.5.6-alpha2"
 
 Then run:
   docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
@@ -20,4 +22,10 @@ Then run:
     sudo docker cp ${ID}:/usr/local/launchpad/${LAUNCHPAD_VERSION}/launchpad-$(uname -s)-$(uname -m) /usr/local/bin/launchpad && \
     docker rm ${ID} >/dev/null
 
+For Windows:
+$LAUNCHPAD_VERSION = "1.5.6-alpha2"
+docker pull msr.ci.mirantis.com/twizda/launchpad:latest ; 
+    $id=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) ; 
+    docker cp $id:/usr/local/launchpad/$LAUNCHPAD_VERSION/launchpad-Win-x86_64 launchpad.exe ; 
+    (docker rm $id | out-null)
 
