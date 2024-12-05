@@ -7,10 +7,12 @@ Launchpad versions in this container:
 1.5.0            1.5.1        1.5.2           1.5.4         1.5.6-alpha1
 1.5.6-alpha2     1.5.6-alpha3 1.5.6           1.5.7         1.5.8
 1.5.9-alpha1     1.5.9-alpha2 1.5.9-PRODENG2696-build1	    1.5.9-PRODENG2969-build2
-1.5.9-alpha3     1.5.9-alpha4
+1.5.9-alpha3     1.5.9-alpha4 1.5.9-alpha5    1.5.9-alpha6  1.5.9-alpha7
+1.5.9-beta1      1.5.9-beta2  1.5.9           1.5.10-rc1    1.5.10-rc2
+1.5.10
 
 Latest stable build:
-1.5.8
+1.5.10
 
 Special builds:
 1.5.9-PRODENG2696-build1
@@ -19,7 +21,7 @@ rbc-ce3f6fd-dev
 
 For Linux/MacOS:
 Export the LAUNCHPAD_VERSION accordingly, for example:
-  export LAUNCHPAD_VERSION="1.5.8"
+  export LAUNCHPAD_VERSION="1.5.10"
 
 Then run:
   docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
