@@ -5,7 +5,7 @@ A utility to easily obtain a desired version of launchpad for the OS and platfor
 Using launchpad-image is easy!
 1. Set the LAUNCHPAD_VERSION variable to the version you desire:
 ```
-export LAUNCHPAD_VERSION="1.5.8"
+export LAUNCHPAD_VERSION="1.5.12"
 ```
 2. Run the following command to pull the current image and copy launchpad to /usr/local/bin:
 ```
@@ -50,18 +50,18 @@ Launchpad versions in this container:
 1.5.10-rc1
 1.5.10-rc2
 1.5.10
-
-Special build:
-rbc-ce3f6fd-dev
-
-Export the LAUNCHPAD_VERSION accordingly, for example:
-  export LAUNCHPAD_VERSION="1.5.10"
-
-Then run:
-  docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
-    ID=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) && \
-    sudo docker cp ${ID}:/usr/local/launchpad/${LAUNCHPAD_VERSION}/launchpad-$(uname -s)-$(uname -m) /usr/local/bin/launchpad && \
-    docker rm ${ID} >/dev/null
+1.5.11
+1.5.12-557-PRODENG-2780
+1.5.12-rc1
+1.5.12-rc2
+1.5.12-rc3
+1.5.12-PRODENG-2962
+1.5.12-rc4
+1.5.12
+1.5.13-tp1
+1.5.13-rc1
+1.5.13-tp2
+1.5.13-rc2
 ```
 
 Enjoy!
