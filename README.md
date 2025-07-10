@@ -64,4 +64,25 @@ Launchpad versions in this container:
 1.5.13-rc2
 ```
 
+Export the LAUNCHPAD_VERSION accordingly, for example:
+```
+  export LAUNCHPAD_VERSION="1.5.12"
+```
+
+Then run:
+```
+  docker pull msr.ci.mirantis.com/twizda/launchpad:latest && \
+    ID=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) && \
+    sudo docker cp ${ID}:/usr/local/launchpad/${LAUNCHPAD_VERSION}/launchpad-$(uname -s)-$(uname -m) /usr/local/bin/launchpad && \
+    docker rm ${ID} >/dev/null
+```
+For Windows on Intel/AMD:
+```
+$LAUNCHPAD_VERSION = "1.5.12"
+docker pull msr.ci.mirantis.com/twizda/launchpad:latest ;
+    $id=$(docker create msr.ci.mirantis.com/twizda/launchpad:latest) ;
+    docker cp $id:/usr/local/launchpad/$LAUNCHPAD_VERSION/launchpad-Windows-x86_64 launchpad.exe ;
+    (docker rm $id | out-null)
+```
+
 Enjoy!
